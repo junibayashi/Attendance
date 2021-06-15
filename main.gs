@@ -21,7 +21,7 @@ function doPost(e) {
   // 参考→https://api.slack.com/events/message.channels
   const token = prop.getProperty('bot_token'); // Bot User OAuth Access Token （xoxbから始まるもの）を取得
   const workspace = prop.getProperty('workspace'); // ワークスペースのURLの固有部分（hoge.slack.comのhoge部分）を取得
-  //const webhook_url = prop.getProperty('webhook_url'); // Webhookの URLを取得
+  //const webhook_url = prop.getProperty('webhook_url'); // Webhookの URLを取得 未使用
 
   const event_type   = json.event.type;
   const host_channel = json.event.channel;
@@ -132,18 +132,6 @@ function TimecardStamp(token,event_type,channel,text,user) {
   //  return
   //}
   
-  // コマンド集
-  //var commands = [
-  //  ['actionSignOut', /(バ[ー〜ァ]*イ|ば[ー〜ぁ]*い|おやすみ|お[つっ]ー|おつ|さらば|お先|お疲|帰|乙|bye|night|(c|see)\s*(u|you)|退勤|ごきげんよ|グ[ッ]?バイ)/],
-  //  ['actionWhoIsOff', /(だれ|誰|who\s*is).*(休|やす(ま|み|む))/],
-  //  ['actionWhoIsIn', /(だれ|誰|who\s*is)/],
-  //  ['actionCancelOff', /(休|やす(ま|み|む)|休暇).*(キャンセル|消|止|やめ|ません)/],
-  //  ['actionOff', /(休|やす(ま|み|む)|休暇)/],
-  //  ['actionSignIn', /(モ[ー〜]+ニン|も[ー〜]+にん|おっは|おは|へろ|はろ|ヘロ|ハロ|hi|hello|morning|出勤)/],
-  //  ['confirmSignIn', /__confirmSignIn__/],
-  //  ['confirmSignOut', /__confirmSignOut__/],
-  //];
-
   //在宅・出社・退勤・未出
   if (event_type == 'message' && text.match(/在宅/)){
     var trigger_word = '出勤';

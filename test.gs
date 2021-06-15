@@ -1,5 +1,11 @@
 function test(){
   
+  const token = prop.getProperty('bot_token'); // Bot User OAuth Access Token （xoxbから始まるもの）を取得
+ 
+
+
+
+
   var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('attendance');
 
   Logger.log('A ： ' + sheet.getRange(1, 8).isBlank() );
@@ -27,7 +33,7 @@ function test(){
   //C024KCU93LG itm_timecard_test
 
   //チャンネルIDを取得する＜ST＞
-  var text ='勤務開始（在宅）<@U014BSX73LK>：#itm_timecard_test';
+  var text ='勤務開始（在宅）<@ABCDEFGHTJ>：#itm_timecard_test';
   if(text.match(/#/)){
     var channel = text.substring(text.search('#')+1);
   }
@@ -36,8 +42,8 @@ function test(){
   
   // メッセージ送信
   var payload = {
-    'token' : 'xoxb-366062236080-2121934434801-KYtZ3EFnEb3V2YEC6cgJfBTG',
-    'channel' : 'C024KCU93LG',
+    'token' : token,
+    'channel' : 'ABCDEFGHIJK',
     //'icon_url' : 'http://path/to/image',
     'username' : 'ロボ',
     'icon_emoji' : ':robot_face:',
@@ -54,7 +60,7 @@ function test(){
   Logger.log('user ： ' + resjson.ok);
   Logger.log('user ： ' + resjson.error);
 
-  return
+  //return
 
 
   var ts = '1622715270.014700';
@@ -87,8 +93,7 @@ function test(){
   //投稿したユーザー名をSlackAPIを用いて取得
   var url = 'https://slack.com/api/users.info';
 
-  var token = 'xoxb-366062236080-2121934434801-KYtZ3EFnEb3V2YEC6cgJfBTG';  
-  var slackId = 'U014BSX73LK';
+  var slackId = 'ABCDEFGHTJ';
 
   // メッセージ送信
   var payload = {
@@ -119,7 +124,7 @@ function test(){
 
   //文字列検索、文字取得
   var tuser = '';
-  var text = '在宅　：<@U014BSX73LK>';
+  var text = '在宅　：<@ABCDEFGHTJ>';
 
   if(tuser == '' && text.match(/@/)){
     var user = text.substring(text.search('@')+1,text.search('>'));
